@@ -1,5 +1,6 @@
 pandas
 matplotlib
 plotly
-plotly-express
+plotly_express
 Streamlit
+matplotlib
