@@ -11,6 +11,9 @@ skyblue = "#0CAFFF"
 @st.cache_data
 def load_data():
     df = pd.read_excel(r"data/healthcare_data.xlsx", engine="openpyxl", dtype=str, parse_dates=["Admission_Date", "Discharge_Date"])
+    df["Admission_Date"] = pd.to_datetime(df["Admission_Date"], errors="coerce")
+    df["Discharge_Date"] = pd.to_datetime(df["Discharge_Date"], errors="coerce")
+    
     df["Admission_Month"] = df["Admission_Date"].dt.strftime("%Y-%m")  # Extract month-year
     df["Discharge_Month"] = df["Discharge_Date"].dt.strftime("%Y-%m")  # Extract month-year
     df["Length_of_Stay"] = (df["Discharge_Date"] - df["Admission_Date"]).dt.days  # Compute stay length
