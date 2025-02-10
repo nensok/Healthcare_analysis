@@ -1,5 +1,1 @@
-pandas
-matplotlib
-plotly==5.22.0
-Streamlit
-matplotlib
+plotly==6.0.0
