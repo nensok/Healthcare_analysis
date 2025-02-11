@@ -2,8 +2,6 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-import os
-
 
 skyblue = "#0CAFFF"
 
@@ -42,11 +40,11 @@ st.title("🏥 Data-Driven Insights on Diagnoses, Patient Admissions and Treatme
 st.divider()
 
 # ---- 1️⃣ Monthly Admissions Trend ----
-st.subheader("📈 Monthly Patient Admissions")
-admissions_per_month = df.groupby("Admission_Month").size().reset_index(name="Admissions")
-fig1 = px.line(admissions_per_month, x="Admission_Month", y="Admissions",
-               title="Monthly Admissions Trend", markers=True)
-st.plotly_chart(fig1, use_container_width=True)
+# st.subheader("📈 Monthly Patient Admissions")
+# admissions_per_month = df.groupby("Admission_Month").size().reset_index(name="Admissions")
+# fig1 = px.line(admissions_per_month, x="Admission_Month", y="Admissions",
+#                title="Monthly Admissions Trend", markers=True)
+# st.plotly_chart(fig1, use_container_width=True)
 
 # discharges_per_month = df.groupby("Discharge_Month").size().reset_index(name="Discharge")
 # fig6 = px.line(discharges_per_month, x="Discharge_Month", y="Discharge",
@@ -61,7 +59,7 @@ admissions_per_month = df.groupby("Admission_Month").size().reset_index(name="Ad
 discharges_per_month = df.groupby("Discharge_Month").size().reset_index(name="Discharges")
 
 # Create line chart with both trends
-fig1 = px.line(title="Monthly Admissions and Discharges Trend", markers=True)
+fig1 = px.area(title="Monthly Admissions and Discharges Trend", markers=True)
 
 # Add Admissions trend
 fig1.add_scatter(x=admissions_per_month["Admission_Month"], y=admissions_per_month["Admissions"], 
