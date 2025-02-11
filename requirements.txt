@@ -1,2 +1,2 @@
-plotly==7.0.0
+plotly==6.0.0
 openpyxl
